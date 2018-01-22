@@ -1,12 +1,12 @@
 {
-  "name": "hyper-alt-click-close",
+  "name": "hyper-tab-close",
   "version": "1.0.0",
   "description": "A hyper plugin that allows you to alt+click on tabs to close them",
   "keywords": [
     "hyper"
   ],
   "main": "index.js",
-  "repository": "https://github.com/mitchreece/hyper-alt-click-close",
+  "repository": "https://github.com/mitchreece/hyper-tab-close",
   "author": "mitchreece <mitchellreece18@gmail.com>",
   "license": "MIT"
 }
