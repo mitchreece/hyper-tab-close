@@ -1,5 +1,5 @@
 exports.decorateTab = (Tab, { React }) => {
-    
+
     return class extends React.Component {
         constructor(props, context) {
             super(props, context)
@@ -7,12 +7,28 @@ exports.decorateTab = (Tab, { React }) => {
         }
 
         handleKeyClick(e) {
-            if(e.altKey) this.props.onClose()
+            if(!e.altKey) return
+
+            e.stopPropagation()
+            this.props.onClose()
         }
 
+
         render() {
+            const currentText= this.props.text
             const props = Object.assign({}, this.props, {
-                onClick: this.handleKeyClick,
+                text: React.createElement(
+                    'span',
+                    {
+                        onClick: this.handleKeyClick,
+                        style: {
+                            display: 'inline-block',
+                            height: '100%',
+                            width: '100%'
+                        }
+                    },
+                    currentText
+                )
             })
 
             return React.createElement(Tab, props)
