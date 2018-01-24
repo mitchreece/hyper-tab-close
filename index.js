@@ -1,4 +1,9 @@
 exports.decorateTab = (Tab, { React }) => {
+    const style = {
+        display: 'inline-block',
+        height: '100%',
+        width: '100%'
+    }
 
     return class extends React.Component {
         constructor(props, context) {
@@ -13,7 +18,6 @@ exports.decorateTab = (Tab, { React }) => {
             this.props.onClose()
         }
 
-
         render() {
             const currentText= this.props.text
             const props = Object.assign({}, this.props, {
@@ -21,11 +25,7 @@ exports.decorateTab = (Tab, { React }) => {
                     'span',
                     {
                         onClick: this.handleKeyClick,
-                        style: {
-                            display: 'inline-block',
-                            height: '100%',
-                            width: '100%'
-                        }
+                        style
                     },
                     currentText
                 )
