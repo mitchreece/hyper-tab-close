@@ -4,7 +4,9 @@
 
 A [hyper](https://hyper.is/) plugin that allows you to alt+click on tabs to close them. 
 
-*I should note that hyper ships with the ability to close tabs using a middle button mouse click.*
+![plugin demo](https://media.giphy.com/media/xUNd9ETJMURAoYQNYk/giphy.gif)
+
+***I should note that hyper ships with the ability to close tabs using a middle button mouse click.***
 
 ## Installation
 
