@@ -10,7 +10,8 @@ exports.decorateTab = (Tab, { React }) => {
     const style = {
         display: 'inline-block',
         height: '100%',
-        width: '100%'
+        width: 'calc(100% + 48px)',
+        marginLeft: '-24px'
     }
 
     return class extends React.Component {
