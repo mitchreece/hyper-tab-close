@@ -1,3 +1,11 @@
+exports.decorateConfig = (config) => {
+    config.hyperTabClose = Object.assign({
+        stopActiveClose: false,
+    }, config.hyperTabClose)
+
+    return config;
+}
+
 exports.decorateTab = (Tab, { React }) => {
     const style = {
         display: 'inline-block',
@@ -9,10 +17,13 @@ exports.decorateTab = (Tab, { React }) => {
         constructor(props, context) {
             super(props, context)
             this.handleKeyClick = this.handleKeyClick.bind(this)
+            this.config = config.getConfig().hyperTabClose
         }
 
         handleKeyClick(e) {
             if(!e.altKey) return
+            
+            if(this.config.stopActiveClose && this.props.isActive) return
 
             e.stopPropagation()
             this.props.onClose()
