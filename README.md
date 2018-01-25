@@ -15,3 +15,16 @@ To install and use, simply add 'hyper-tab-close' to your list of plugins in '~/.
 ```javascript
     plugins: [ 'hyper-tab-close' ],
 ```
+
+## Customisation
+
+You can also customise the behaviour of this plugin by adding the following to your config object within '~/.hyper.js':
+
+```javascript
+    hyperCloseTab: {
+        
+        // PREVENT ABILITY TO CLOSE ACTIVE TABS
+        stopActiveClose: true, //default = false
+
+    }
+```
