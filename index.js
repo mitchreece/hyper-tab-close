@@ -1,49 +1,50 @@
 exports.decorateConfig = (config) => {
-    config.hyperTabClose = Object.assign({
-        stopActiveClose: false,
-    }, config.hyperTabClose)
+	config.hyperTabClose = Object.assign({
+		stopActiveClose: false,
+	}, config.hyperTabClose);
 
-    return config;
-}
+	return config;
+};
 
 exports.decorateTab = (Tab, { React }) => {
-    const style = {
-        display: 'inline-block',
-        height: '100%',
-        width: 'calc(100% + 48px)',
-        marginLeft: '-24px'
-    }
+	const style = {
+		display: 'inline-block',
+		height: '100%',
+		width: 'calc(100% + 48px)',
+		marginLeft: '-24px',
+	};
 
-    return class extends React.Component {
-        constructor(props, context) {
-            super(props, context)
-            this.handleKeyClick = this.handleKeyClick.bind(this)
-            this.config = config.getConfig().hyperTabClose
-        }
+	return class extends React.Component {
 
-        handleKeyClick(e) {
-            if(!e.altKey) return
-            
-            if(this.config.stopActiveClose && this.props.isActive) return
+		constructor(props, context) {
+			super(props, context);
+			this.handleKeyClick = this.handleKeyClick.bind(this);
+			this.config = config.getConfig().hyperTabClose;
+		}
 
-            e.stopPropagation()
-            this.props.onClose()
-        }
+		handleKeyClick(e) {
+			if (!e.altKey) return;
 
-        render() {
-            const currentText= this.props.text
-            const props = Object.assign({}, this.props, {
-                text: React.createElement(
-                    'span',
-                    {
-                        onClick: this.handleKeyClick,
-                        style
-                    },
-                    currentText
-                )
-            })
+			if (this.config.stopActiveClose && this.props.isActive) return;
 
-            return React.createElement(Tab, props)
-        }
-    }
-}
+			e.stopPropagation();
+			this.props.onClose();
+		}
+
+		render() {
+			const currentText = this.props.text;
+			const props = Object.assign({}, this.props, {
+				text: React.createElement(
+					'span',
+					{
+						onClick: this.handleKeyClick,
+						style,
+					},
+					currentText,
+				)
+			});
+
+			return React.createElement(Tab, props);
+		}
+	};
+};
